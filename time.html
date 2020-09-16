@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+#date{
+	color: rgb(247, 151, 223);
+	font-size: 18px;
+	line-height: 1;
+    font-weight: 900;
+	font-family: 'Lucida Grande',
+	'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+	Meiryo, メイリオ, sans-serif;
+}
+</style>
+</head>
+<body>
+  <p id="date" />
+  <script language="JavaScript">
+  var yyyymmddhhmiss = function() {
+    var date = new Date();
+    var yyyy = date.getFullYear();
+    var mm = toDoubleDigits(date.getMonth() + 1);
+    var dd = toDoubleDigits(date.getDate());
+    var hh = toDoubleDigits(date.getHours());
+    var mi = toDoubleDigits(date.getMinutes());
+    var ss = toDoubleDigits(date.getSeconds())
+    var element = document.getElementById("date");
+    element.innerHTML = hh + ':' + mi + ':' + ss;
+  };
+  var toDoubleDigits = function(num) {
+    num += "";
+    if (num.length === 1) {
+      num = "0" + num;
+    }
+   return num;
+  };
+  setInterval(yyyymmddhhmiss, 1000);
+  </script>
+</body>
+</html>
